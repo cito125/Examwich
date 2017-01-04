@@ -21,15 +21,14 @@ import retrofit2.Response;
  * Created by andresarango on 12/21/16.
  */
 public class AnimalsFragment extends Fragment {
-    RecyclerView mRecyclerView;
-    AnimalsAdapter mAdapter;
+    private RecyclerView mRecyclerView;
+    private final AnimalsAdapter mAdapter = new AnimalsAdapter();
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.animals_fragment,container,false);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.animals_recyclerview);
-        mAdapter = new AnimalsAdapter();
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         mRecyclerView.setAdapter(mAdapter);
         setAdapterList();
